@@ -6,7 +6,7 @@ export const GroceryItemComponent = ({
   handleEditItem,
   handleDeleteItem,
 }) => {
-  const editInputRef = useRef();
+  const inputRef = useRef();
   const [isEditing, setIsEditing] = useState(false);
   const [newItem, setNewItem] = useState(item.name);
   const [error, setError] = useState("");
@@ -18,17 +18,17 @@ export const GroceryItemComponent = ({
       setError("");
     } else {
       setError("Grocery item must not be empty!");
-      editInputRef.current.focus();
+      inputRef.current.focus();
     }
   };
 
   return (
     <>
-      <li className="flex justify-between bg-neutral-100 px-3 py-2 rounded font-medium text-lg drop-shadow-xl">
+      <li className="flex justify-between items-center bg-white px-3 py-2 rounded text-sm md:text-lg shadow-2xl">
         {isEditing ? (
           <input
-            ref={editInputRef}
-            className="bg-neutral-200 rounded px-2 border-2 border-blue-400 focus:outline-blue-400"
+            ref={inputRef}
+            className="bg-body w-full mr-3 rounded px-2 border-2 outline-second"
             type="text"
             value={newItem}
             onChange={(event) => setNewItem(event.target.value)}
@@ -39,7 +39,7 @@ export const GroceryItemComponent = ({
 
         <div className="flex gap-3">
           <button
-            className="text-2xl text-neutral-700 transition-all duration-300 ease-out hover:scale-110"
+            className="text-lg md:text-2xl text-neutral-700 transition-all duration-300 ease-out hover:scale-110"
             onClick={() => {
               isEditing ? openEdit() : setIsEditing(true);
             }}
@@ -47,7 +47,7 @@ export const GroceryItemComponent = ({
             {isEditing ? <AiOutlineSave color="green" /> : <AiOutlineEdit />}
           </button>
           <button
-            className="text-2xl text-red-600 transition-all duration-300 ease-out hover:scale-110"
+            className="text-lg md:text-2xl text-red-700 transition-all duration-300 ease-out hover:scale-110"
             onClick={() => {
               handleDeleteItem(item.id);
             }}
@@ -57,7 +57,7 @@ export const GroceryItemComponent = ({
         </div>
       </li>
       {error ? (
-        <p className="px-1 mb-3 text-red-600 text-lg text-center leading-3 font-bold tracking-wider">
+        <p className="px-1 mb-3 text-red-500 text-sm md:text-lg text-center leading-3 font-semibold tracking-wide">
           {error}
         </p>
       ) : null}

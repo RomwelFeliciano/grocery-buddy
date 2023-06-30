@@ -4,7 +4,7 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div className="flex justify-center items-center h-screen bg-stone-600 font-league">
+    <div className="flex justify-center items-center h-screen bg-[url(./background.jpg)] bg-no-repeat bg-cover bg-center font-league">
       <GroceryComponent />
     </div>
   );
