@@ -42,11 +42,11 @@ const GroceryComponent = () => {
   };
 
   return (
-    <div className="container flex flex-col justify-start items-center m-3 bg-body h-[52%] rounded-lg drop-shadow-2xl md:h-[600px] md:w-[500px] xl:w-[40%]">
+    <div className="container flex flex-col justify-start items-center m-3 bg-opacity-70 bg-body h-[52%] rounded-lg drop-shadow-2xl md:bg-opacity-100 md:h-[600px] md:w-[500px] xl:w-[40%]">
       <h1 className="text-lg md:text-4xl pt-5 font-bold uppercase tracking-wider">
         Grocery Buddy
       </h1>
-      <div className="pt-2 w-full px-10">
+      <div className="pt-2 w-full px-5 md:px-10">
         {error ? (
           <p className="px-1 mb-3 text-red-500 text-sm md:text-lg text-center leading-3 font-semibold tracking-wide">
             {error}
@@ -74,7 +74,7 @@ const GroceryComponent = () => {
       </div>
       <div
         id="ScrollNone"
-        className="mt-2 mb-8 w-full px-10 rounded overflow-scroll"
+        className="mt-2 mb-8 w-full px-5 md:px-10 rounded overflow-scroll"
       >
         {groceryItems.length > 0 ? (
           <ul className="rounded shadow-lg flex flex-col gap-2">
